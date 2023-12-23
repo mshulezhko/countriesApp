@@ -1,13 +1,374 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;800&family=Nunito+Sans:opsz,wght@6..12,300;6..12,600;6..12,800&family=Quicksand:wght@300;500;700&family=Ubuntu:wght@500&display=swap');
+
+:root {
+  --dark-blue: hsl(209, 23%, 22%);
+  --very-dark-blue: hsl(207, 26%, 17%);
+  --very-dark-blue: hsl(200, 15%, 8%);
+  --dark-gray: hsl(0, 0%, 52%);
+  --very-light-gray: hsl(0, 0%, 98%);
+  --white: hsl(0, 0%, 100%);
+  --shadow-pagination: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px,
+    rgba(0, 0, 0, 0.3) 0px 30px 60px -30px,
+    rgba(10, 37, 64, 0.35) 0px -2px 6px 0px inset;
+
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Theme color change */
+body.light-theme {
+  --white: hsl(207, 26%, 17%);
+  --dark-blue: hsl(0, 0%, 100%);
+  --very-dark-blue: hsl(0, 0%, 98%);
+  --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+button {
+  cursor: pointer;
+}
+
+a {
+  text-decoration: none;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Nunito Sans', sans-serif;
+}
+
+img {
+  width: 100%;
+}
+
+body {
+  background-color: var(--very-dark-blue);
+}
+
+/* Countries */
+.grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 40px;
+  padding: 10px 30px;
+}
+
+.country-card img {
+  object-fit: cover;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 5px 5px 0 0;
+
+}
+
+.country-card {
+  width: 200px;
+  border-radius: 20px;
+  box-shadow: var(--shadow);
+
+}
+
+.country-card-info {
+  background-color: var(--dark-blue);
+  color: var(--white);
+  margin-top: -5px;
+  padding: 10px;
+  height: 150px;
+  border-radius: 0 0 5px 5px;
+
+}
+
+.country-card-info h3 {
+  font-size: 16px;
+  margin-bottom: 10px;
+}
+
+.country-card-info p {
+  font-size: 12px;
+}
+
+/* pagination*/
+.pagination-container {
+  padding: 20px 0;
+}
+
+.pagination {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.pagination li {
+  margin-left: 10px;
+  cursor: pointer;
+  border: 1px solid var(--very-dark-blue);
+  background-color: var(--dark-blue);
+  color: var(--white);
+  padding: 4px 8px;
+  border-radius: 4px;
+  box-shadow: var(--shadow-pagination);
+
+}
+
+ul {
+  list-style: none;
+}
+
+/* Header */
+.header {
+  background-color: var(--dark-blue);
+  color: var(--white);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  padding: 16px 30px;
+  box-shadow: var(--shadow);
+}
+
+.react-icons {
+  font-size: 20px;
+  color: var(--white);
+}
+
+#theme-toggle-btn {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  border: none;
+  background-color: var(--dark-blue);
+  color: var(--white);
+  box-shadow: var(--shadow);
+  padding: 8px 10px;
+  border-radius: 2px;
+}
+
+/* filter form */
+.form-wrap {
+  padding: 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.select {
+  color: var(--white);
+  /* font-size: px; */
+  background-color: var(--dark-blue);
+  border: none;
+  padding: 10px 14px;
+  box-shadow: var(--shadow);
+  border-radius: 2px;
+}
+
+.select:active,
+.select:focus {
+  font-family: inherit;
+  outline: none;
+  border: none;
+}
+
+.form {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  box-shadow: var(--shadow);
+}
+
+button>svg {
+  font-size: 20px;
+  color: var(--white);
+}
+
+.search-country-btn {
+  background-color: var(--dark-blue);
+  border: none;
+  padding: 8px 5px 8px 25px;
+  margin-right: -5px;
+}
+
+.search-country-input {
+  background-color: var(--dark-blue);
+  border: none;
+  color: var(--white);
+  /* height: 24px; */
+  padding: 11px 20px;
+  font-family: inherit;
+  outline: none;
+
+}
+
+.search-country-input:active,
+.search-country-input:focus {
+  background-color: var(--dark-blue);
+  border: none;
+  color: var(--white);
+  outline: none;
+}
+
+/* country-detail- */
+.country-detail-wrap {
+  padding: 10px 20px;
+  padding-top: 50px;
+
+}
+
+.country-detail-wrap button {
+  background-color: var(--dark-blue);
+  border: none;
+  color: var(--white);
+  outline: none;
+  padding: 8px 14px;
+  border-radius: 4px;
+  box-shadow: var(--shadow);
+}
+
+.country-detail-block {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  padding-top: 50px;
+}
+
+.main-img {
+  width: 500px;
+  max-width: 500px;
+}
+
+.country-detail-text-block {
+  width: 500px;
+  max-width: 500px;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  gap: 60px
+}
+
+.country-detail-text-block h1,
+.info div p {
+  color: var(--white);
+}
+
+.country-detail-text-block h1 {
+  margin-bottom: 20px;
+}
+
+.info div p {
+  margin-bottom: 7px;
+  font-size: 14px;
+  letter-spacing: .1rem;
+}
+
+.main-img {
+  box-shadow: var(--shadow);
+  border-radius: 4px;
+}
+
+
+
+@media (max-width: 475px) {
+  .grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .country-card {
+    width: 100%;
+  }
+
+  .header h1 {
+    font-size: 14px;
+  }
+
+  #theme-toggle-btn {
+    text-wrap: nowrap;
+  }
+
+  .form-wrap {
+    flex-direction: column;
+    align-items: flex-start;
+
+  }
+
+  .form {
+    width: 100%;
+    margin-bottom: 20px;
+
+  }
+
+  .form input {
+    width: 400px;
+    max-width: 400px;
+  }
+
+  .pagination li {
+    margin-left: 5px;
+    padding: 4px;
+    font-size: 12px;
+  }
+
+}
+
+@media (min-width: 475px) and (max-width: 716px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .header h1 {
+    font-size: 16px;
+  }
+
+}
+
+@media (max-width: 520px) {
+  .info {
+    flex-direction: column;
+    gap: 0;
+  }
+
+  .main-img {
+    width: 300px;
+    max-width: 300px;
+  }
+
+  .country-detail-text-block {
+    width: 300px;
+  }
+
+  .info div {
+    padding-top: 0;
+  }
+
+  .country-detail-block {
+    justify-content: center;
+  }
+
+}
+
+@media (min-width: 717px) and (max-width: 959px) {
+  .grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+
+}
+
+@media (min-width: 960px) {
+  .grid {
+    grid-template-columns: repeat(4, 1fr);
+  }
+
+}
+
+@media (max-width: 1066px) {
+  .country-detail-block {
+    flex-direction: column;
+  }
+
+  .country-detail-text-block {
+    margin-top: 30px;
+  }
+
 }
